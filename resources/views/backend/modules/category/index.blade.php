@@ -15,7 +15,7 @@
                     {{Session('flash_message')}}
                   </div>
                 @endif
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped" id="data_table">
               <thead>
                 <tr>
                   <th>Categories ID</th>
@@ -49,6 +49,32 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+<script>
+  $(document).ready(function(){
+      $('#data_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax:{
+          url: "{{ route('category.index') }}",
+        },
+        columns:[
+          {
+            data: 'name',
+            name: 'name',
+          },
+          {
+            data: 'slug',
+            name: 'slug',
+          },
+          {
+            data: 'action',
+            name: 'action',
+            orderable: false,
+          }
+        ]
 
+      });
+  });
+</script>
  
 @endsection  

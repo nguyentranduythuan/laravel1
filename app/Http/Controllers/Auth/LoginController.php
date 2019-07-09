@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -35,5 +38,29 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $login_user = array(
+            'email' => $request->email,
+            'password' => $request->password,
+            'level' => 1
+        );
+
+        if(Auth::attempt($login_user))
+        {
+            return redirect('admin/category/index');
+        }
+        else
+        {
+            return redirect('login')->with('flash_message','Invalid Email and Password');
+        }
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        return redirect('login');
     }
 }

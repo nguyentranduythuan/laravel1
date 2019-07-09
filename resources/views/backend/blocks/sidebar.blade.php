@@ -54,6 +54,19 @@
             <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>News</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('news.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
+            <li><a href="{{ route('news.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+          </ul>
+        </li>
         
         
         

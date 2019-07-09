@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Category extends Model
 {
-	protected $table = "caterories";
+	protected $table = "categories";
 	protected $fillable = ['name','slug'];
 
 	use Sluggable;
