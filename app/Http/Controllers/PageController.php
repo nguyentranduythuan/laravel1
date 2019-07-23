@@ -10,30 +10,28 @@ class PageController extends Controller
 {
     public function index()
     {
-    	$categories = Category::all();
-    	$news = News::all();
-    	return view('frontend.layouts.index',compact('categories','news'));
+        $categories = Category::all();
+
+    	return view('frontend.index',compact('categories'));
     }
 
-    public function category($id)
+    public function news($slug = null)
     {
-    	$categories = Category::find($id);
-    	$news = News::where('category_id',$id);
-    	return view('frontend.layouts.category',compact('categories','news'));
+        $categories = Category::all();
+        
+        $categoryDetail = Category::where(['slug'=> $slug])->first();
+        //echo $categoryDetail;
+        $newsDetail = News::where(['category_id' => $categoryDetail->id])->get();
+        //dd($newsDetail);
+
+        return view('frontend.news.index',compact('categoryDetail','newsDetail','categories')); 
     }
 
-    public function news($id)
+    public function detail($slug)
     {
-    	$category = Category::all();
-    	$news = DB::table('news')->select('id','title')->where('category_id')->get();
-    	//print_r($news);
-    	
-    	return view('frontend.layouts.news',compact('news'));
-    }
-
-    public function detail($id)
-    {
-    	$detail = News::find($id);
-    	return view('frontend.layouts.detail',compact('detail'));
+        $categories = Category::all();
+    	$detail = News::where('slug', $slug)->first();
+        //dd($detail);
+    	return view('frontend.news.detail',compact('detail','categories'));
     }
 }

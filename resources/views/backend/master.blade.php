@@ -50,23 +50,23 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  @include('backend.blocks.header')
+  @include('backend.components.header')
   <!-- Left side column. contains the logo and sidebar -->
-  @include('backend.blocks.sidebar')
+  @include('backend.components.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('backend.blocks.breadcrumb')
+    @include('backend.components.breadcrumb')
 
     @yield('content')
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  @include('backend.blocks.footer')
+  @include('backend.components.footer')
 
   <!-- Control Sidebar -->
-  @include('backend.blocks.side_right')
+  @include('backend.components.side_right')
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
@@ -166,5 +166,6 @@
 <!-- page script -->
 
 <!-- jQuery 3 -->
+@@stack('script')
 </body>
 </html>

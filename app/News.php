@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class News extends Model
 {
     protected $table = "news";
-    protected $fillable = ['title','slug','author','intro','content','image','category_id'];
+    protected $fillable = ['title','slug','author','intro','content','status','image','category_id'];
 
     public function Category()
     {

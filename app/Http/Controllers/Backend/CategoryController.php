@@ -13,12 +13,12 @@ class CategoryController extends Controller
     public function index()
     {
     	$categories = Category::all();
-    	return view('backend.modules.category.index',compact('categories'));
+    	return view('backend.categories.index',compact('categories'));
     }
 
     public function create()
     {
-    	return view('backend.modules.category.create');
+    	return view('backend.categories.create');
     }
 
     public function store(CategoryRequest $request)
@@ -28,13 +28,13 @@ class CategoryController extends Controller
     	$category->name = $request->category_name;
     	$category->save();
 
-    	return redirect('admin/category/index')->with('flash_message','You added this category name successfully !!!');
+    	return redirect('admin/categories/index')->with('flash_message','You added this category name successfully !!!');
     }
 
     public function edit($id)
     {
     	$category = Category::find($id);
-    	return view('backend.modules.category.edit',compact('category'));
+    	return view('backend.categories.edit',compact('category'));
     }
 
     public function update(CategoryRequest $request,$id)
@@ -44,7 +44,7 @@ class CategoryController extends Controller
     	$category->slug = null;
     	$category->save();
 
-    	return redirect('admin/category/index')->with('flash_message','You updated this Category name successfully !!!');
+    	return redirect('admin/categories/index')->with('flash_message','You updated this Category name successfully !!!');
     }
 
     public function delete($id)
@@ -52,7 +52,7 @@ class CategoryController extends Controller
     	$category = Category::find($id);
     	$category->delete($id);
 
-    	return redirect('admin/category/index')->with('flash_message','You deleted Successfully !!!!');
+    	return redirect('admin/categories/index')->with('flash_message','You deleted Successfully !!!!');
     }
 
 }

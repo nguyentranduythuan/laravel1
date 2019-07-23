@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->tinyInteger('status');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            //$table->dropForeign('category_id');
             $table->timestamps();
         });
     }
