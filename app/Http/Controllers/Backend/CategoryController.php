@@ -26,6 +26,7 @@ class CategoryController extends Controller
     	$category = new Category;
 
         $data_category = $request->all();
+        //dd($data_category);
     	$category->fill($data_category)->save();
 
     	return redirect('admin/categories/index')->with('flash_message','You added this category name successfully !!!');

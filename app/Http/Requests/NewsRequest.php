@@ -29,7 +29,7 @@ class NewsRequest extends FormRequest
             'intro' => 'required',
             'content' => 'required',
             'image' => 'required',
-            'category_parent' => 'required',
+            'category_id' => 'required',
         ];
     }
 
@@ -44,7 +44,7 @@ class NewsRequest extends FormRequest
             'intro.required' => 'Please enter intro.',
             'content.required' => 'Please enter content',
             'image.required' => 'Please choose your image.',
-            'category_parent.required' => 'Please enter Category',
+            'category_id.required' => 'Please enter Category',
         ];
         
     }

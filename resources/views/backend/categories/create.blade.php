@@ -31,7 +31,7 @@
 	                    <div class="form-group">
 	                		<label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
 		                  	<div class="col-sm-10">
-		                    	<input type="text" class="form-control" id="name" name="category_name" placeholder="Please enter Category name">
+		                    	<input type="text" class="form-control" id="name" name="name" placeholder="Please enter Category name">
 		                  	</div>
 	                	</div>
 		              <!-- /.box-body -->

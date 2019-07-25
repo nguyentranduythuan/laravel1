@@ -58,7 +58,7 @@
             <div class="form-group">
               <label for="category" class="col-sm-2 control-label">Category</label>
               <div class="col-sm-10">
-                <select class="form-control" id="category_parent" name="category_parent">
+                <select class="form-control" id="category_parent" name="category_id">
                   <option value="">Please choose Category</option>
                   @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -109,12 +109,12 @@
             <div class="form-group" style="text-align: center">
               <div class="col-sm-6">
 
-                <input class="form-check-input" type="radio" name="ShowHide" id="AnHien_1" value="1" checked="">
+                <input class="form-check-input" type="radio" name="status" id="AnHien_1" value="1" checked="">
                 <label class="form-check-label" for="inlineRadio1">Show</label>
               </div>
 
               <div class="col-sm-6">
-                <input class="form-check-input" type="radio" name="ShowHide" id="AnHien_0" value="0">
+                <input class="form-check-input" type="radio" name="status" id="AnHien_0" value="0">
                 <label class="form-check-label" for="inlineRadio2">Hide</label>
               </div>
             </div>

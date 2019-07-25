@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_name' => 'required'
+            'name' => 'required'
         ];
     }
 
@@ -32,7 +32,7 @@ class CategoryRequest extends FormRequest
     {
         return 
         [
-            'category_name.required' => 'Please enter Category name'
+            'name.required' => 'Please enter Category name'
         ];
     }
 }
