@@ -25,8 +25,8 @@ class CategoryController extends Controller
     {
     	$category = new Category;
 
-    	$category->name = $request->category_name;
-    	$category->save();
+        $data_category = $request->all();
+    	$category->fill($data_category)->save();
 
     	return redirect('admin/categories/index')->with('flash_message','You added this category name successfully !!!');
     }
@@ -40,9 +40,9 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request,$id)
     {
     	$category = Category::find($id);
-    	$category->name = $request->category_name;
-    	$category->slug = null;
-    	$category->save();
+    	
+        $data_category = $request->all();
+    	$category->fill($data_category)->save();
 
     	return redirect('admin/categories/index')->with('flash_message','You updated this Category name successfully !!!');
     }
@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function delete($id)
     {
     	$category = Category::find($id);
-    	$category->delete($id);
+    	$category->delete();
 
     	return redirect('admin/categories/index')->with('flash_message','You deleted Successfully !!!!');
     }

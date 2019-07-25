@@ -2,8 +2,20 @@
 @section('content')
 
 @push('script')
-  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
+  <script src="{{ asset('public/backend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('public/backend/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+
+  <script>
+    $(function () {
+      $('#example1').DataTable()
+    })
+  </script>
 @endpush
+
+@push('css')
+  <link rel="stylesheet" href="{{ asset('public/backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+@endpush
+
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
@@ -61,7 +73,7 @@
                     @endif
                   </td>
                   <td>
-                    <a href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success">Edit</a>
+                    <a class="btn btn-success" href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success" style="margin-bottom: 5px;">Edit</a>
                     <form action="{{ url('admin/news/delete/'.$n->id) }}" method="post" accept-charset="utf-8">
                     <div id="delete">
                     <button onclick="return confirm('Do you want to delete this Category name?')" type="submit" id="delete" name="delete" value="delete" class="btn btn-danger">Delete</button>
@@ -83,26 +95,5 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
-    <script>
-        $(document).ready(function () {
-            jQuery("#delete").click(function(){
-                var data_test = 'Bạn đã xóa thành công';
-                $.ajax({
-                    url: {{ url('admin/news/delete/'.$n->id) }},
-                    type: 'POST',
-                    data: 'string=' + data_test,
-                    success: function (data) {
-                        setTimeout(function(){
-                            $('#delete').html(data);
-                        }, 3000);
-                    },
-                    error: function (e) {
-                        console.log(e.message);
-                    }
-                });
-            });
-        });
- </script>
- 
 @endsection  
 

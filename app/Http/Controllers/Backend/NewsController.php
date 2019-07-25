@@ -34,17 +34,7 @@ class NewsController extends Controller
             $image = Storage::putFile('public',$request->image);
         }
 
-    	$data_news = array
-        (
-            'category_id' => $request->category_parent,
-            'title' => $request->title,
-            'slug' => null,
-            'author' => $request->author,
-            'intro' => $request->intro,
-            'content' => $request->content,
-            'status' => $request->ShowHide,
-            'image' => $image,
-        );
+        $data_news = $request->all();
         
         $news->fill($data_news)->save();
 
@@ -68,17 +58,7 @@ class NewsController extends Controller
             $image = Storage::putFile('public',$request->image);
         }
 
-    	$data_news = array
-        (
-            'category_id' => $request->category_parent,
-            'title' => $request->title,
-            'slug' => null,
-            'author' => $request->author,
-            'intro' => $request->intro,
-            'content' => $request->content,
-            'status' => $request->ShowHide,
-            'image' => $image,
-        );
+    	
         
     	$news->fill($data_news)->save();
 
