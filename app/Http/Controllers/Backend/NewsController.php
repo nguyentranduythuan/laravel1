@@ -58,7 +58,7 @@ class NewsController extends Controller
             $image = Storage::putFile('public',$request->image);
         }
 
-    	
+    	$data_news = $request->all();
         
     	$news->fill($data_news)->save();
 
