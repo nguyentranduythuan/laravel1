@@ -45,11 +45,10 @@
             <td>{{$category->name}}</td>
             <td>{{$category->slug}}</td>
             <td>
-              <a class="btn btn-success" href="{{ url('admin/categories/edit/'.$category->id) }}" style="margin-bottom: 10px;">Edit</a>
+              
               <form action="{{ url('admin/categories/delete/'.$category->id) }}" method="post" accept-charset="utf-8">
-                <div id="delete">
+                  <a class="btn btn-success" href="{{ url('admin/categories/edit/'.$category->id) }}">Edit</a>
                   <button onclick="return confirm('Do you want to delete this Category name?')" type="submit" id="delete" name="delete" value="delete" class="btn btn-danger">Delete</button>
-                </div>
                 @csrf
               </form>
             </td>

@@ -73,11 +73,9 @@
                     @endif
                   </td>
                   <td>
-                    <a class="btn btn-success" href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success" style="margin-bottom: 5px;">Edit</a>
                     <form action="{{ url('admin/news/delete/'.$n->id) }}" method="post" accept-charset="utf-8">
-                    <div id="delete">
-                    <button onclick="return confirm('Do you want to delete this Category name?')" type="submit" id="delete" name="delete" value="delete" class="btn btn-danger">Delete</button>
-                    </div>
+                      <a class="btn btn-success" href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success">Edit</a>
+                      <button onclick="return confirm('Do you want to delete this Category name?')" type="submit" id="delete" name="delete" value="delete" class="btn btn-danger">Delete</button>
                     @csrf
                     </form>
                   </td>
