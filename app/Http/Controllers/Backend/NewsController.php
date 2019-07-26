@@ -31,14 +31,30 @@ class NewsController extends Controller
 
         if($request->hasFile('image'))
         {
-            $image = Storage::putFile('public',$request->image);
+            $image = Storage::putFile('public',$request->file('image'));
+            //dd($image);
         }
+
+        // $news->title = $request->title;
+        // $news->author = $request->author;
+        // $news->intro = $request->intro;
+        // $news->content = $request->content;
+        // $news->status = $request->status;
+        // $news->category_id = $request->category_id;
+        // $news->image = $image;
+        // $news->save();
+
+        
 
         $data_news = $request->all();
         
-        $news->fill($data_news)->save();
+        
+        $news->fill($data_news);
+        $news->image = $image;
+        $news->save();
+        //$news->save();
 
-    	return redirect('admin/news/index')->with('flash_message','You added this content successfully!!!');
+    	return redirect('admin/news/index')->with('flash_message','You added this content sucwcessfully!!!');
     }
 
     public function edit($id)

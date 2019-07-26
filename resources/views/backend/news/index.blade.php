@@ -43,9 +43,9 @@
                   <th>Category</th>
                   <th>Action</th>
                 </tr>
-                </thead>
+              </thead>
 
-                <tbody>
+              <tbody>
                 @foreach ($news as $n)
                 <tr>
                   <td>{{$loop->iteration}}</td>
@@ -74,15 +74,15 @@
                   </td>
                   <td>
                     <form action="{{ url('admin/news/delete/'.$n->id) }}" method="post" accept-charset="utf-8">
-                      <a class="btn btn-success" href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success">Edit</a>
+                      <a class="btn btn-success" href="{{ url('admin/news/edit/'.$n->id) }}" class="btn btn-success" style="margin-bottom: 2px;">Edit</a>
                       <button onclick="return confirm('Do you want to delete this Category name?')" type="submit" id="delete" name="delete" value="delete" class="btn btn-danger">Delete</button>
                     @csrf
                     </form>
                   </td>
                 </tr>
                 @endforeach
-               </tbody>
-              </table>
+              </tbody>
+            </table>
         </div>
           
         </div>
