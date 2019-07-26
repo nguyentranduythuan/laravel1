@@ -52,7 +52,7 @@
                   <td>{{$n->title}}</td>
                   <td>{{$n->slug}}</td>
                   <td>{{$n->author}}</td>
-                  <td>{{$n->intro}}</td>
+                  <td>{!!$n->intro!!}</td>
                   {{-- <td>{{$n->content}}</td> --}}
                   <td><img src="{{ asset('storage/app/'.$n->image) }}" width="100px;"></td>
                   <td>
