@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($login_user))
         {
-            return redirect('admin/categories/index');
+            return redirect('admin/category/index');
         }
         else
         {

@@ -50,8 +50,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('categories.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-            <li><a href="{{ route('categories.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="{{ route('admin.category.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
+            <li><a href="{{ route('admin.category.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
           </ul>
         </li>
 
@@ -63,8 +63,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('news.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-            <li><a href="{{ route('news.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="{{ route('admin.news.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
+            <li><a href="{{ route('admin.news.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
           </ul>
         </li>
         

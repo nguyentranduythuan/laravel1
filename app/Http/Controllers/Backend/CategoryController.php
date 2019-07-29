@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $data_category = $request->all();
     	$category->fill($data_category)->save();
 
-    	return redirect('admin/categories/index')->with('flash_message','You updated this Category name successfully !!!');
+    	return redirect('admin/category/index')->with('flash_message','You updated this Category name successfully !!!');
     }
 
     public function delete($id)
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     	$category = Category::find($id);
     	$category->delete();
 
-    	return redirect('admin/categories/index')->with('flash_message','You deleted Successfully !!!!');
+    	return redirect('admin/category/index')->with('flash_message','You deleted Successfully !!!!');
     }
 
 }

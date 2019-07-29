@@ -83,15 +83,15 @@
                 @endforeach
               </tbody>
             </table>
-        </div>
+          </div>
           
         </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col -->
       </div>
+        <!-- /.col -->
+    </div>
       <!-- /.row -->
-    </section>
+  </section>
     <!-- /.content -->
 @endsection  
 

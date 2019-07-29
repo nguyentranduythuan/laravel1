@@ -26,13 +26,13 @@
             				{{Session('flash_message')}}
             			</div>
             		@endif
-		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('categories.update',$category->id) }}">
+		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.update',$category->id) }}">
 		            	@csrf
 		                
 	                    <div class="form-group">
 	                		<label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
 		                  	<div class="col-sm-10">
-		                    	<input type="text" class="form-control" id="name" name="category_name" value="{{old('category_name', $category->name)}}" placeholder="Please enter Category name">
+		                    	<input type="text" class="form-control" id="name" name="name" value="{{old('category_name', $category->name)}}" placeholder="Please enter Category name">
 		                  	</div>
 	                	</div>
 		              <!-- /.box-body -->

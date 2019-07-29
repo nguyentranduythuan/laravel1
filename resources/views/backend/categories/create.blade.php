@@ -24,7 +24,7 @@
             				{{Session('flash_message')}}
             			</div>
             		@endif
-		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('categories.store') }}">
+		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.store') }}">
 		            	@csrf
 		            	
 		                

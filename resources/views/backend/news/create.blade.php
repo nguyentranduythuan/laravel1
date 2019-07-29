@@ -51,7 +51,7 @@
             {{Session('flash_message')}}
           </div>
         @endif
-        <form class="form-horizontal" method="post" id="add_category" action="{{ route('news.store') }}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" id="add_category" action="{{ route('admin.news.store') }}" enctype="multipart/form-data">
         @csrf
           <div class="box-body">
 
@@ -93,16 +93,6 @@
               <label for="content" class="col-sm-2 control-label">Content</label>
               <div class="col-sm-10">
                 <textarea cols="60" rows="10" id="content" name="content">{{ old('content',$category->title)}}</textarea>
-                <script>
-  CKEDITOR.replace( 'intro', {
-        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
-        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
-        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
-        filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-        filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
-    } );
-</script>
               </div>   
             </div>
 
