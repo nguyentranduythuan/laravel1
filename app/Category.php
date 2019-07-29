@@ -30,4 +30,6 @@ class Category extends Model
             ]
         ];
     }
+
+    
 }

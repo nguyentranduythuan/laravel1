@@ -30,4 +30,10 @@ class News extends Model
             ]
         ];
     }
+
+    // public function getCategoryById($id)
+    // {
+    //     $category = DB::table('categories')->where('id',$id)->first();
+    //     echo $category->name;
+    // }
 }
