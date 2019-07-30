@@ -123,7 +123,7 @@
             <div class="form-group">
               <label for="image" class="col-sm-2 control-label">Images</label>
               <div class="col-sm-10">
-                <input type="file" name="image" value="{{old('image',$news->image)}}" placeholder="Please choose your image">
+                <input type="file" name="image" value="" placeholder="Please choose your image">
               </div>
             </div>
 

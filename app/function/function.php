@@ -98,9 +98,9 @@ function category_parent($categories,$parent = 0,$str = "--",$select = 0)
 	
 }
 
-function getCategoryById($id)
-    {
-        $category = DB::table('categories')->where('id',$id)->first();
-        echo $category->name;
-    }
+// function getCategoryById($id)
+// {
+//     $category = DB::table('categories')->where('id',$id)->first();
+//     echo $category->name;
+// }
 ?>

@@ -12,7 +12,7 @@ class News extends Model
 
     public function Category()
     {
-        return $this->belongsTo('App\Category','id');
+        return $this->belongsTo('App\Category');
     }
 
     use Sluggable;
@@ -30,10 +30,4 @@ class News extends Model
             ]
         ];
     }
-
-    // public function getCategoryById($id)
-    // {
-    //     $category = DB::table('categories')->where('id',$id)->first();
-    //     echo $category->name;
-    // }
 }

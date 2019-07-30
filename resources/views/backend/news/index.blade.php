@@ -66,11 +66,7 @@
                     @if ($n['category_id'] == 0)
                       {{"None"}}
                     @else
-                      @php
-                        // $category = DB::table('categories')->where('id',$n['category_id'])->first();
-                        // echo $category->name;
-                        getCategoryById($n['category_id']);
-                      @endphp
+                      {{$n->Category->name}}
                     @endif
                   </td>
                   <td>

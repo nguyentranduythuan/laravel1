@@ -12,7 +12,7 @@ class Category extends Model
 
     public function news()
     {
-        return $this->hasMany('App\News','category_id','id');
+        return $this->hasMany('App\News');
     }
 
 	use Sluggable;

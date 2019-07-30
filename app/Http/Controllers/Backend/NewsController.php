@@ -16,6 +16,7 @@ class NewsController extends Controller
     public function index()
     {
     	$news = News::all();
+
     	return view('backend.news.index',compact('news'));
     }
 
@@ -28,7 +29,7 @@ class NewsController extends Controller
     public function store(NewsRequest $request)
     {
         $news = new News;
-
+        $news->getCategoryById($id);
         if($request->hasFile('image'))
         {
             $image = Storage::putFile('public',$request->file('image'));
@@ -44,17 +45,14 @@ class NewsController extends Controller
         // $news->image = $image;
         // $news->save();
 
-        
-
         $data_news = $request->all();
-        
         
         $news->fill($data_news);
         $news->image = $image;
         $news->save();
         //$news->save();
 
-    	return redirect('admin/news/index')->with('flash_message','You added this content sucwcessfully!!!');
+    	return redirect('admin/news/index')->with('flash_message','You added this content successfully!!!');
     }
 
     public function edit($id)
@@ -76,8 +74,9 @@ class NewsController extends Controller
 
     	$data_news = $request->all();
         
-    	$news->fill($data_news)->save();
-
+    	$news->fill($data_news);
+        $news->image = $image;
+        $news->save();
 
     	return redirect('admin/news/index')->with('flash_message','You edited this content successfully!!!');
     }

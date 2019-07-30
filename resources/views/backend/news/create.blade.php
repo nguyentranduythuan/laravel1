@@ -70,21 +70,21 @@
             <div class="form-group">
               <label for="title" class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="title" placeholder="Please enter tile for content" value="{{ old('title',$category->title)}}">
+                <input type="text" class="form-control" id="name" name="title" placeholder="Please enter tile for content" value="{{ old('title')}}">
               </div>
             </div>
 
             <div class="form-group">
               <label for="author" class="col-sm-2 control-label">Author</label>
               <div class="col-sm-10">
-                <input type="text" name="author" class="form-control" id="name" placeholder="Please enter Aurhor name for content" value="{{ old('author',$category->author)}}" >
+                <input type="text" name="author" class="form-control" id="name" placeholder="Please enter Aurhor name for content" value="{{ old('author')}}" >
               </div>
             </div>
 
             <div class="form-group">
               <label for="intro" class="col-sm-2 control-label">Intro</label>
                 <div class="col-sm-10">
-                  <textarea cols="60" rows="10" id="intro" name="intro">{{ old('intro',$category->intro)}}</textarea>
+                  <textarea cols="60" rows="10" id="intro" name="intro">{{ old('intro')}}</textarea>
                   
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="form-group">
               <label for="content" class="col-sm-2 control-label">Content</label>
               <div class="col-sm-10">
-                <textarea cols="60" rows="10" id="content" name="content">{{ old('content',$category->title)}}</textarea>
+                <textarea cols="60" rows="10" id="content" name="content">{{ old('content')}}</textarea>
               </div>   
             </div>
 
