@@ -51,18 +51,22 @@
             {{Session('flash_message')}}
           </div>
         @endif
-        <form class="form-horizontal" method="post" id="add_category" action="{{ route('admin.news.update',$news->id) }}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" id="add_category" action="{{ route('admin.news.store',$news->id) }}" enctype="multipart/form-data">
         @csrf
           <div class="box-body">
 
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
               <div class="col-sm-10">
-                <select class="form-control" id="exampleFormControlSelect1" name="category_id">
-                  <option value="0">Please choose Category</option>
-                  @php
-                    category_parent($category,0,"--",$news['category_id']);
-                  @endphp
+                <select class="form-control" id="" name="category_id">
+                  <option value="">Please choose Category</option>
+                  @foreach ($categories as $category)
+                    @if ($category->id == $news['category_id'])
+                      {!!"<option value=".$category->id." selected='selected'>".$category->name."</option>"!!}
+                    @else
+                      {!!"<option value=".$category->id.">".$category->name."</option>"!!}
+                    @endif
+                  @endforeach
                 </select>
               </div>
             </div>

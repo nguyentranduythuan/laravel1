@@ -7,7 +7,7 @@
           <!-- Horizontal Form -->
         	<div class="box box-info">
             	<div class="box-header with-border">
-              		<h3 class="box-title">Edition Category</h3>
+              		<h3 class="box-title">Category</h3>
             	</div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -26,7 +26,7 @@
             				{{Session('flash_message')}}
             			</div>
             		@endif
-		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.update',$category->id) }}">
+		            <form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.store',$category->id) }}">
 		            	@csrf
 		                
 	                    <div class="form-group">

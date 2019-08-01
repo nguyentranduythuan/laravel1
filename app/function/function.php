@@ -77,9 +77,9 @@ function stripUnicode($str){
 	return $str;
 }
 
-function category_parent($categories,$parent = 0,$str = "--",$select = 0)
+function category_parent($categories,$parent = 0,$select = 0)
 { 
-		
+	//$categories = \DB::table('categories')->select('id','name')->where('id',$parent)->get();
 	foreach ($categories as $category) {
 		$id = $category['id'];
 		$name = $category['name'];
@@ -87,7 +87,7 @@ function category_parent($categories,$parent = 0,$str = "--",$select = 0)
 		if($category['category_id']  == $parent){
 			if($select != 0 && $id == $select)
 			{
-				echo "<option value='$id' selected='selectted'>$name</option>";
+				echo "<option value='$id' selected='selected'>$name</option>";
 			}
 			else
 			{

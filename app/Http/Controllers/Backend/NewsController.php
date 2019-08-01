@@ -22,28 +22,19 @@ class NewsController extends Controller
 
     public function create()
     {
-    	$categories = Category::all();
-    	return view('backend.news.create',compact('categories'));
+        $categories = Category::all();
+        $news = new News;
+    	return view('backend.news.edit',compact('categories','news'));
     }
 
     public function store(NewsRequest $request)
     {
         $news = new News;
-        $news->getCategoryById($id);
         if($request->hasFile('image'))
         {
             $image = Storage::putFile('public',$request->file('image'));
             //dd($image);
         }
-
-        // $news->title = $request->title;
-        // $news->author = $request->author;
-        // $news->intro = $request->intro;
-        // $news->content = $request->content;
-        // $news->status = $request->status;
-        // $news->category_id = $request->category_id;
-        // $news->image = $image;
-        // $news->save();
 
         $data_news = $request->all();
         
@@ -57,9 +48,9 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-    	$category = Category::select('id','name')->get();
+    	$categories = Category::all();
     	$news = News::find($id);
-    	return view('backend.news.edit',compact('category','news'));
+    	return view('backend.news.edit',compact('categories','news'));
     }
 
     public function update(NewsRequest $request,$id)

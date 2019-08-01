@@ -18,7 +18,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-    	return view('backend.categories.create');
+        $category = new Category;
+    	return view('backend.categories.edit',compact('category'));
     }
 
     public function store(CategoryRequest $request)
@@ -29,7 +30,7 @@ class CategoryController extends Controller
         //dd($data_category);
     	$category->fill($data_category)->save();
 
-    	return redirect('admin/categories/index')->with('flash_message','You added this category name successfully !!!');
+    	return redirect('admin/category/index')->with('flash_message','You added this category name successfully !!!');
     }
 
     public function edit($id)
