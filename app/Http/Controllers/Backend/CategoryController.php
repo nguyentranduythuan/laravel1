@@ -12,8 +12,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
-    	$categories = Category::all();
+    	$categories = Category::paginate(5);
     	return view('backend.categories.index',compact('categories'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $keys = Category::where('name','like',"%$search%")->orWhere('slug','like',"%$search%")->take(5)->paginate(5);
+        return view('backend.categories.search',compact('keys','search'));
     }
 
     public function create()

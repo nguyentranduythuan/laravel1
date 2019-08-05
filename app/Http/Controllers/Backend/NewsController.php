@@ -15,9 +15,16 @@ class NewsController extends Controller
 {
     public function index()
     {
-    	$news = News::all();
+    	$news = News::paginate(5);
 
     	return view('backend.news.index',compact('news'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $keys = News::where('title','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('intro','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('content','like',"%$search%")->take(5)->paginate(5);
+        return view('backend.news.search',compact('keys','search'));
     }
 
     public function create()

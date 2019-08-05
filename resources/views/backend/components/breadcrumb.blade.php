@@ -1,10 +1,10 @@
 <section class="content-header">
       <h1>
-        Dashboard
-        <small>Control panel</small>
+        @yield('controller')
+        <small>@yield('action')</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>@yield('home')</a></li>
+        <li class="active">@yield('name')</li>
       </ol>
 </section>

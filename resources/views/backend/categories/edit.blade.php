@@ -1,5 +1,11 @@
 @extends('backend.master')
 
+@section('title', 'Category | edit')
+@section('controller','Category')
+@section('action','Index')
+@section('home','category')
+@section('name','list')
+
 @section('content')
 <section class="content">
     <div class="row">

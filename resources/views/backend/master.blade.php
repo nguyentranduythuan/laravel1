@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>@yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('public/backend/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('public/backend/bower_components/font-awesome/css/font-awesome.min.css') }}">
-  @stack('css')
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('public/backend/dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('public/backend/dist/css/skins/_all-skins.min.css') }}">
@@ -18,7 +17,6 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -39,7 +37,7 @@
   @include('backend.components.footer')
 
   <!-- Control Sidebar -->
-  @include('backend.components.side_right')
+  {{-- @include('backend.components.side_right') --}}
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
@@ -61,6 +59,5 @@
 <script src="{{ asset('public/backend/dist/js/admin.js') }}"></script>
 
 <!-- jQuery 3 -->
-@stack('script')
 </body>
 </html>

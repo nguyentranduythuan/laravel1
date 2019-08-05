@@ -1,5 +1,11 @@
 @extends('backend.master')
 
+@section('title', 'News | edit')
+@section('controller','News')
+@section('action','Edit')
+@section('home','news')
+@section('name','edit')
+
 @push('script')
 <script src="{{ asset('public/backend/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('public/backend/ckfinder/ckfinder.js') }}"></script>
@@ -32,7 +38,7 @@
     <!-- Horizontal Form -->
       <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">Addition Category</h3>
+          <h3 class="box-title">Update News</h3>
         </div>
       <!-- /.box-header -->
       <!-- form start -->

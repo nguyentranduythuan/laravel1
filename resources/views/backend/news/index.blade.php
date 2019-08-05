@@ -1,27 +1,30 @@
 @extends('backend.master')
+
+@section('title', 'News | index')
+@section('controller','Category')
+@section('action','Index')
+@section('home','news')
+@section('name','list')
+
 @section('content')
-
-@push('script')
-  <script src="{{ asset('public/backend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('public/backend/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-
-  <script>
-    $(function () {
-      $('#example1').DataTable()
-    })
-  </script>
-@endpush
-
-@push('css')
-  <link rel="stylesheet" href="{{ asset('public/backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-@endpush
-
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
-          <div class="box-header">
+          <div class="col-md-5">
             <h3 class="box-title">List News</h3>
+          </div>
+          <div class="col-md5">
+            <form action="{{ route('admin.news.search') }}" method="post" accept-charset="utf-8" style="width: 200px; margin-left: 700px; padding-top: 10px;">
+            @csrf
+        
+              <div class="input-group">
+                <input type="search" name="search" class="form-control">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </span>
+              </div>
+            </form>
           </div>
           <div class="box-body">
             @if (Session::has('flash_message'))
@@ -81,7 +84,7 @@
               </tbody>
             </table>
           </div>
-          
+          <div class="clearfix" style="margin-left: 700px;">{{$news->links()}}</div>
         </div>
           <!-- /.box -->
       </div>
