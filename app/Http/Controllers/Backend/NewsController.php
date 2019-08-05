@@ -23,7 +23,7 @@ class NewsController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $keys = News::where('title','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('intro','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('content','like',"%$search%")->take(5)->paginate(5);
+        $keys = News::where('title','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('intro','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('content','like',"%$search%")->paginate(5);
         return view('backend.news.search',compact('keys','search'));
     }
 
@@ -48,7 +48,6 @@ class NewsController extends Controller
         $news->fill($data_news);
         $news->image = $image;
         $news->save();
-        //$news->save();
 
     	return redirect('admin/news/index')->with('flash_message','You added this content successfully!!!');
     }
@@ -71,10 +70,11 @@ class NewsController extends Controller
         }
 
     	$data_news = $request->all();
+        dd($data_news);
         
     	$news->fill($data_news);
         $news->image = $image;
-        $news->save();
+        //$news->save();
 
     	return redirect('admin/news/index')->with('flash_message','You edited this content successfully!!!');
     }

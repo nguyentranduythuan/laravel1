@@ -58,6 +58,8 @@
 
 <script src="{{ asset('public/backend/dist/js/admin.js') }}"></script>
 
+@stack('script')
+
 <!-- jQuery 3 -->
 </body>
 </html>
