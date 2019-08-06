@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Laravel\Scout\Searchable;
 
 class News extends Model
 {
@@ -30,4 +31,13 @@ class News extends Model
             ]
         ];
     }
+
+    // public function toSearchableArray()
+    // {
+    //     $array = $this->toArray();
+
+    //     // Customize array...
+
+    //     return $array;
+    // }
 }

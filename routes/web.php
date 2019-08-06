@@ -56,7 +56,7 @@ Route::namespace('Backend')->group(function(){
 			Route::post('delete/{id}','NewsController@delete')->name('delete');
 
 				//});
-			Route::post('search','NewsController@search')->name('search');
+			Route::get('search','NewsController@search')->name('search');
 		});
 	});
 

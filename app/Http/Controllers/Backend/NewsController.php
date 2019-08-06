@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\NewsRequest;
 
 use App\News;
@@ -23,7 +23,8 @@ class NewsController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $keys = News::where('title','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('intro','like',"%$search%")->orWhere('author','like',"%$search%")->orWhere('content','like',"%$search%")->paginate(5);
+        $keys = News::where('title','like','%'.$search.'%')->orWhere('author','like','%'.$search.'%')->orWhere('intro','like','%'.$search.'%')->orWhere('author','like','%'.$search.'%')->orWhere('content','like','%'.$search.'%')->paginate(5);
+        $keys->appends($request->only('search'));
         return view('backend.news.search',compact('keys','search'));
     }
 

@@ -14,7 +14,7 @@
       <h3 class="box-title">Result :: {{$search}}</h3>
     </div>
     <div class="col-md5">
-      <form action="{{ route('admin.news.search') }}" method="post" accept-charset="utf-8" style="width: 200px; margin-left: 700px; padding-top: 5px;">
+      <form action="{{ route('admin.news.search') }}" method="get" accept-charset="utf-8" role="search" style="width: 200px; margin-left: 700px; padding-top: 5px;">
         @csrf
         
         <div class="input-group">
@@ -82,7 +82,7 @@
                 @endforeach
               </tbody>
             </table>
-        <div class="clearfix" style="margin-left: 800px;">{{$keys->links()}}</div>
+        <div class="clearfix" style="margin-left: 700px;">{{$keys->links()}}</div>
         
   </div>
     

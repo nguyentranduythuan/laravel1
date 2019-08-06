@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title', 'News | index')
-@section('controller','Category')
+@section('controller','News')
 @section('action','Index')
 @section('home','news')
 @section('name','list')
@@ -15,7 +15,7 @@
             <h3 class="box-title">List News</h3>
           </div>
           <div class="col-md5">
-            <form action="{{ route('admin.news.search') }}" method="post" accept-charset="utf-8" style="width: 200px; margin-left: 700px; padding-top: 10px;">
+            <form action="{{ route('admin.news.search') }}" method="get" accept-charset="utf-8" style="width: 200px; margin-left: 700px; padding-top: 10px;">
             @csrf
         
               <div class="input-group">
