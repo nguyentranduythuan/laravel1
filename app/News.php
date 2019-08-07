@@ -32,12 +32,8 @@ class News extends Model
         ];
     }
 
-    // public function toSearchableArray()
-    // {
-    //     $array = $this->toArray();
-
-    //     // Customize array...
-
-    //     return $array;
-    // }
+    public function searchableAs()
+    {
+        return "title";
+    }
 }

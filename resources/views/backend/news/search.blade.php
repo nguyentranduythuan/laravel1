@@ -82,7 +82,7 @@
                 @endforeach
               </tbody>
             </table>
-        <div class="clearfix" style="margin-left: 700px;">{{$keys->links()}}</div>
+        <div class="clearfix" style="margin-left: 700px;">{{$keys->appends(request()->input())->links()}}</div>
         
   </div>
     

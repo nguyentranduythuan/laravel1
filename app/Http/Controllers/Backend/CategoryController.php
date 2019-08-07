@@ -49,10 +49,13 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request,$id)
     {
     	$category = Category::find($id);
-    	
-        $data_category = $request->all();
-    	$category->fill($data_category)->save();
-
+        //if(!empty($id))
+        //{
+            $data_category = $request->all();
+            $category->fill($data_category)->save(); 
+        //}
+        
+        
     	return redirect('admin/category/index')->with('flash_message','You updated this Category name successfully !!!');
     }
 

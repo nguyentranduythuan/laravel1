@@ -11,6 +11,7 @@ use App\Http\Requests\NewsRequest;
 use App\News;
 use App\Category;
 
+
 class NewsController extends Controller
 {
     public function index()
@@ -24,7 +25,7 @@ class NewsController extends Controller
     {
         $search = $request->search;
         $keys = News::where('title','like','%'.$search.'%')->orWhere('author','like','%'.$search.'%')->orWhere('intro','like','%'.$search.'%')->orWhere('author','like','%'.$search.'%')->orWhere('content','like','%'.$search.'%')->paginate(5);
-        $keys->appends($request->only('search'));
+        // $keys->appends($request->only('search'));
         return view('backend.news.search',compact('keys','search'));
     }
 
