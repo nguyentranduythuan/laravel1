@@ -1,6 +1,6 @@
 @extends('backend.master')
 
-@section('title', 'Category | edit')
+@section('title', 'Category')
 @section('controller','Category')
 @section('action','Index')
 @section('home','category')
