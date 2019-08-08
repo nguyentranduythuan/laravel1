@@ -19,7 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('author');
             $table->text('intro');
             $table->text('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->tinyInteger('status');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');

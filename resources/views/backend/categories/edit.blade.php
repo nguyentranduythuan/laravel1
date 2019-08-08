@@ -32,40 +32,28 @@
             				{{Session('flash_message')}}
             			</div>
             		@endif
-            		@if (isset($category->id) ? $category->id : '')
-            			<form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.update',$category->id) }}">
-		            	@csrf
-		                
-		                    <div class="form-group">
-		                		<label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
-			                  	<div class="col-sm-10">
-			                    	<input type="text" class="form-control" id="name" name="name" value="{{old('category_name', $category->name)}}" placeholder="Please enter Category name">
-			                  	</div>
-		                	</div>
-		              		<!-- /.box-body -->
-				            <div class="box-footer">
-				                <button type="submit" value="add" class="btn btn-info pull-right">Update</button>
-				            </div>
-		              		<!-- /.box-footer -->
-		            	</form>
-		            @else
-		            	<form class="form-horizontal" method="post" name="add_category" id="add_category" action="{{ route('admin.category.store') }}">
-		            	@csrf
-		                
-		                    <div class="form-group">
-		                		<label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
-			                  	<div class="col-sm-10">
-			                    	<input type="text" class="form-control" id="name" name="name" value="{{old('category_name', $category->name)}}" placeholder="Please enter Category name">
-			                  	</div>
-		                	</div>
-		              		<!-- /.box-body -->
-				            <div class="box-footer">
-				                <button type="submit" value="add" class="btn btn-info pull-right">Update</button>
-				            </div>
-		              		<!-- /.box-footer -->
-		            	</form>
-            		@endif
-		            
+           
+        			<form class="form-horizontal" method="post" name="add_category" id="add_category" action="
+        			@if (isset($category->id) ? $category->id : '')
+        				{{ route('admin.category.update',$category->id) }}
+        			@else
+        				{{ route('admin.category.store') }}
+        			@endif
+        			">
+	            		@csrf
+	                
+	                    <div class="form-group">
+	                		<label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
+		                  	<div class="col-sm-10">
+		                    	<input type="text" class="form-control" id="name" name="name" value="{{old('category_name', $category->name)}}" placeholder="Please enter Category name">
+		                  	</div>
+	                	</div>
+	              		<!-- /.box-body -->
+			            <div class="box-footer">
+			                <button type="submit" value="add" class="btn btn-info pull-right">Update</button>
+			            </div>
+	              		<!-- /.box-footer -->
+	            	</form>  
         	</div>
 	    </div>
     </div>

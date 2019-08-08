@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\NewsRequest;
+use App\Http\Requests\UpdateNews;
 
 use App\News;
 use App\Category;
@@ -46,7 +47,7 @@ class NewsController extends Controller
         }
 
         $data_news = $request->all();
-        
+        //dd($data_news);
         $news->fill($data_news);
         $news->image = $image;
         $news->save();
@@ -61,22 +62,32 @@ class NewsController extends Controller
     	return view('backend.news.edit',compact('categories','news'));
     }
 
-    public function update(NewsRequest $request,$id)
+    public function update(UpdateNews $request,$id)
     {
         $news = News::findOrFail($id);
         
+        // if($request->hasFile('image'))
+        // {
+        //     $image = Storage::putFile('public',$request->image);
+        //     if(file_exists())
+        // }
         if($request->hasFile('image'))
         {
             Storage::delete($news->image);
-            $image = Storage::putFile('public',$request->image);
+            $image = Storage::putFile('public',$request->file('image'));
+            // if(empty($request->file('image')))
+            // {
+            //     $image = Storage::put('public',$request->file('image'));
+            // }
         }
 
     	$data_news = $request->all();
-        dd($data_news);
-        
     	$news->fill($data_news);
-        $news->image = $image;
-        //$news->save();
+        if($request->hasFile('image'))
+        {
+            $news->image = $image;
+        }
+        $news->save();
 
     	return redirect('admin/news/index')->with('flash_message','You edited this content successfully!!!');
     }
