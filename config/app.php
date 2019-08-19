@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        // LaravelHungary\Announcement\PackageServiceProvider::class,
 
     ],
 
@@ -227,7 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Datatables' => Yajra\DataTables\Facades\Datatables::class,
-
+        // 'Announce' => LaravelHungary\Announcement\Facades\Announce::class,
     ],
 
 ];

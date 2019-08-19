@@ -66,11 +66,9 @@
                     @endif
                   </td>
                   <td>
-                    @if ($n['category_id'] == 0)
-                      {{"None"}}
-                    @else
-                      {{$n->Category->name}}
-                    @endif
+                    @foreach ($n->categories as $category)
+                      {{$category->name}}
+                    @endforeach
                   </td>
                   <td>
                     <form action="{{ url('admin/news/delete/'.$n->id) }}" method="post" accept-charset="utf-8">

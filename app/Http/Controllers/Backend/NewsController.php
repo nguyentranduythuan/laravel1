@@ -40,17 +40,20 @@ class NewsController extends Controller
     public function store(NewsRequest $request)
     {
         $news = new News;
-        if($request->hasFile('image'))
+        if($request->hasFile('update_image'))
         {
-            $image = Storage::putFile('public',$request->file('image'));
+            $image = Storage::putFile('public',$request->file('update_image'));
             //dd($image);
+            $news->image = $image;
         }
 
         $data_news = $request->all();
         //dd($data_news);
         $news->fill($data_news);
-        $news->image = $image;
+        // $news->image = $image;
         $news->save();
+
+        $news->categories()->sync($request->categories);
 
     	return redirect('admin/news/index')->with('flash_message','You added this content successfully!!!');
     }
@@ -62,32 +65,27 @@ class NewsController extends Controller
     	return view('backend.news.edit',compact('categories','news'));
     }
 
-    public function update(UpdateNews $request,$id)
+    public function update(NewsRequest $request,$id)
     {
         $news = News::findOrFail($id);
-        
-        // if($request->hasFile('image'))
-        // {
-        //     $image = Storage::putFile('public',$request->image);
-        //     if(file_exists())
-        // }
-        if($request->hasFile('image'))
+        $data_news = $request->all();
+        $news->fill($data_news);
+        if($request->hasFile('update_image'))
         {
             Storage::delete($news->image);
-            $image = Storage::putFile('public',$request->file('image'));
-            // if(empty($request->file('image')))
+            $image = Storage::putFile('public',$request->file('update_image'));
+            $news->image = $image;
+            // if(Storage::exists('public',$request->file('update_image')))
             // {
-            //     $image = Storage::put('public',$request->file('image'));
+            //     dd('có file');
+            // } else {
+            //     echo('không có file');
             // }
         }
-
-    	$data_news = $request->all();
-    	$news->fill($data_news);
-        if($request->hasFile('image'))
-        {
-            $news->image = $image;
-        }
+        
         $news->save();
+
+        $news->categories()->sync($request->categories);
 
     	return redirect('admin/news/index')->with('flash_message','You edited this content successfully!!!');
     }

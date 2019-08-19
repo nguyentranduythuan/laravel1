@@ -15,6 +15,7 @@
         "laravel/framework": "5.8.*",
         "laravel/scout": "^7.1",
         "laravel/tinker": "^1.0",
+        "laravelhungary/announcement": "^1.1",
         "yajra/laravel-datatables-oracle": "^9.4"
     },
     "require-dev": {

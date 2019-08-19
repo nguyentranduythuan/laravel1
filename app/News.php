@@ -4,16 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 
 class News extends Model
 {
     protected $table = "news";
     protected $fillable = ['title','slug','author','intro','content','status','image','category_id'];
 
-    public function Category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category','articles');
+    }
+
+    public function News()
+    {
+
     }
 
     use Sluggable;
@@ -32,8 +37,8 @@ class News extends Model
         ];
     }
 
-    public function searchableAs()
-    {
-        return "title";
-    }
+    // public function searchableAs()
+    // {
+    //     return "title";
+    // }
 }

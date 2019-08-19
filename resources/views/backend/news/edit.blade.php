@@ -59,26 +59,30 @@
         @endif
 
         <form class="form-horizontal" method="post" id="add_category" action="
-        @if (isset($news->id) ? $news->id : '')
-          {{ route('admin.news.update',$news->id) }}
-        @else
-          {{ route('admin.news.store') }}  
-        @endif
+        @php
+          $actionUrl = route('admin.news.store');
+          if (isset($news->id) ? $news->id : ''){
+            $actionUrl = route('admin.news.update',$news->id);
+          }
+        @endphp
         " enctype="multipart/form-data">
           @csrf
           <div class="box-body">
-
+            {{-- {{$news->categories}} --}}
+            {{-- {{$categories}} --}}
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
               <div class="col-sm-10">
-                <select class="form-control" id="" name="category_id">
+                <select class="form-control" id="" name="categories">
                   <option value="">Please choose Category</option>
-                  @foreach ($categories as $category)
-                    @if ($category->id == $news['category_id'])
-                      {!!"<option value=".$category->id." selected='selected'>".$category->name."</option>"!!}
-                    @else
-                      {!!"<option value=".$category->id.">".$category->name."</option>"!!}
-                    @endif
+                  @foreach($news->categories as $n)
+                    @foreach ($categories as $category)
+                      @if ($category->id == $n->id)
+                        {!!"<option value=".$category->id." selected='selected'>".$category->name."</option>"!!}
+                      @else
+                        {!!"<option value=".$category->id.">".$category->name."</option>"!!}  
+                      @endif
+                    @endforeach
                   @endforeach
                 </select>
               </div>
@@ -140,7 +144,7 @@
             <div class="form-group">
               <label for="image" class="col-sm-2 control-label">Images</label>
               <div class="col-sm-10">
-                <input type="file" name="image" value="{{old('image',$news->image)}}">
+                <input type="file" name="update_image" value="">
               </div>
             </div>
 

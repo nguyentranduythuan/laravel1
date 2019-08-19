@@ -34,11 +34,12 @@
             		@endif
            
         			<form class="form-horizontal" method="post" name="add_category" id="add_category" action="
-        			@if (isset($category->id) ? $category->id : '')
-        				{{ route('admin.category.update',$category->id) }}
-        			@else
-        				{{ route('admin.category.store') }}
-        			@endif
+                    @php
+                        $actionUrl = route('admin.category.store');
+                        if(isset($category->id) ? $category->id : '') {
+                            $actionUrl = route('admin.category.update',$category->id);
+                        }
+                    @endphp
         			">
 	            		@csrf
 	                
